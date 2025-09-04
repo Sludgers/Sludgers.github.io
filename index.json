@@ -1,0 +1,14 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Sludgers",
+  "url": "https://sludgers.github.io",
+  "logo": "https://sludgers.github.io/logo.png",
+  "description": "Sludgers — Save. Protect. Nourish. A community-driven initiative to restore forests, plant trees, and protect nature.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "cloudletpuddles@gmail.com",
+    "contactType": "Customer Support",
+    "availableLanguage": ["English"]
+  }
+}
