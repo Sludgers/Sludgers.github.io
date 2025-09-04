@@ -115,6 +115,14 @@
       .logo{width:48px;height:48px}
     }
 
+  
+    /* extra enforcement: make mailto links match site look and remove underline entirely */
+    a[href^="mailto:"]{ color:#2f6041 !important; text-decoration:none !important; border-bottom:none !important; font-weight:600 }
+    /* ensure buttons never show underlines from user-agent or link styling */
+    .btn, .btn *{ text-decoration: none !important }
+    /* tiny extra hover polish for softness */
+    .btn:hover{ transform:translateY(-4px) scale(1.01); }
+    a{ -webkit-tap-highlight-color: transparent }
   </style>
 </head>
 <body>
