@@ -81,8 +81,19 @@
     .tree-illustration{width:100%;max-width:260px}
     .support-cta{display:flex;gap:10px}
     .btn{
-      display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:12px;border:none;cursor:pointer;text-decoration:none;font-weight:700
+      display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:12px;border:none;cursor:pointer;text-decoration:none;font-weight:700;
+      transition:transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease, filter 220ms ease, background 220ms ease;
+      will-change:transform, box-shadow;
     }
+    .btn:focus{outline:3px solid rgba(125,207,134,0.18);outline-offset:4px;border-radius:12px}
+
+    .btn-primary:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(125,207,134,0.18);filter:brightness(1.02)}
+    .btn-primary:active{transform:translateY(-1px);box-shadow:0 8px 20px rgba(125,207,134,0.12)}
+    .btn-secondary:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(34,75,50,0.06);background:rgba(255,255,255,0.9)}
+    .btn-secondary:active{transform:translateY(-1px);box-shadow:0 6px 12px rgba(34,75,50,0.04)}
+
+    /* mailto links: match site's soft look and remove underline */
+    a[href^=\"mailto:\"]{color:#2f6041;text-decoration:none;font-weight:600}
     .btn-primary{background:linear-gradient(90deg,var(--accent),#7dcf86);color:white;box-shadow:0 8px 20px rgba(125,207,134,0.18)}
     .btn-secondary{background:transparent;border:1px solid rgba(34,75,50,0.08);color:#2e6b44}
 
@@ -133,7 +144,6 @@
     <main>
       <section class="hero">
         <div>
-          <div class="kicker">futuristic nature lab</div>
           <h1>sludgers</h1>
           <p class="sub">Save. Protect. Nourish. — A soft, futuristic push to restore green spaces, plant trees, and create living systems that last. Join our gentle revolution for nature.</p>
           <div style="margin-top:22px;display:flex;gap:12px;align-items:center">
