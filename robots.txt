@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://sludgers.github.io/sitemap.xml
