@@ -1,106 +1,58 @@
-// script.js - interactivity for Sludgers
+// ===== SELECT ELEMENTS =====
+const darkModeBtn = document.getElementById("darkModeBtn");
+const body = document.body;
+const icon = darkModeBtn.querySelector("i");
 
-/* -------------- Theme (dark / light) -------------- */
-const themeToggle = document.getElementById('theme-toggle');
-function applyTheme(theme){
-  if(theme === 'dark') {
-    document.body.classList.add('dark');
-    themeToggle.textContent = 'Light';
-    themeToggle.setAttribute('aria-pressed','true');
+// ===== DARK MODE TOGGLE =====
+darkModeBtn.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+
+  // Change icon dynamically
+  if (body.classList.contains("dark-mode")) {
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
   } else {
-    document.body.classList.remove('dark');
-    themeToggle.textContent = 'Dark';
-    themeToggle.setAttribute('aria-pressed','false');
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
   }
+
+  // Save preference to local storage
+  localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
+});
+
+// ===== LOAD USER PREFERENCE =====
+if (localStorage.getItem("darkMode") === "true") {
+  body.classList.add("dark-mode");
+  icon.classList.remove("fa-moon");
+  icon.classList.add("fa-sun");
 }
-const saved = localStorage.getItem('sludgers_theme');
-applyTheme(saved === 'dark' ? 'dark' : 'light');
 
-themeToggle?.addEventListener('click', () => {
-  const isDark = document.body.classList.toggle('dark');
-  applyTheme(isDark ? 'dark' : 'light');
-  localStorage.setItem('sludgers_theme', isDark ? 'dark' : 'light');
-});
+// ===== SCROLL REVEAL ANIMATIONS =====
+const reveals = document.querySelectorAll(".reveal");
 
-/* -------------- Responsive nav toggle -------------- */
-const navToggle = document.getElementById('nav-toggle');
-const navMenu = document.getElementById('nav-menu');
-navToggle?.addEventListener('click', () => {
-  const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-  navToggle.setAttribute('aria-expanded', String(!expanded));
-  if(navMenu.hasAttribute('hidden')){
-    navMenu.removeAttribute('hidden');
-  } else {
-    navMenu.setAttribute('hidden','');
-  }
-});
+window.addEventListener("scroll", () => {
+  for (let i = 0; i < reveals.length; i++) {
+    const windowHeight = window.innerHeight;
+    const revealTop = reveals[i].getBoundingClientRect().top;
+    const revealPoint = 100;
 
-/* Close mobile menu on link click */
-document.querySelectorAll('#nav-menu a').forEach(a => {
-  a.addEventListener('click', () => {
-    if (window.innerWidth <= 900 && !navMenu.hasAttribute('hidden')) {
-      navToggle.setAttribute('aria-expanded','false');
-      navMenu.setAttribute('hidden','');
+    if (revealTop < windowHeight - revealPoint) {
+      reveals[i].classList.add("active");
     }
-  });
-});
-
-/* Close menu on Escape */
-document.addEventListener('keydown', (e) => {
-  if(e.key === 'Escape' && navMenu && !navMenu.hasAttribute('hidden')){
-    navToggle.setAttribute('aria-expanded','false');
-    navMenu.setAttribute('hidden','');
   }
 });
 
-/* -------------- Scroll reveal -------------- */
-function revealOnScroll(){
-  const reveals = document.querySelectorAll('.reveal');
-  const windowHeight = window.innerHeight;
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < windowHeight - 100) el.classList.add('visible');
-  });
+// ===== IMAGE SLIDER =====
+let slideIndex = 0;
+const slides = document.querySelectorAll(".mySlides");
+
+function showSlides() {
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  slides[slideIndex - 1].style.display = "block";
+  setTimeout(showSlides, 4000); // Change slide every 4 sec
 }
-window.addEventListener('scroll', revealOnScroll, {passive:true});
-window.addEventListener('load', revealOnScroll);
-
-/* -------------- Simple slider for projects -------------- */
-(function slider(){
-  let slideIndex = 0;
-  const slides = document.querySelectorAll('.mySlides');
-  if(!slides || slides.length === 0) return;
-
-  function show(n){
-    slides.forEach(s => s.style.display = 'none');
-    slides[n].style.display = 'block';
-  }
-
-  function next(){
-    slideIndex = (slideIndex + 1) % slides.length;
-    show(slideIndex);
-  }
-
-  // autoplay
-  show(slideIndex);
-  let autoplay = setInterval(next, 4500);
-
-  // pause on hover
-  slides.forEach(s => {
-    s.addEventListener('mouseenter', () => clearInterval(autoplay));
-    s.addEventListener('mouseleave', () => autoplay = setInterval(next, 4500));
-  });
-
-  // prev/next buttons (if present)
-  document.querySelectorAll('.prev, .next').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      clearInterval(autoplay);
-      if(btn.classList.contains('next')) next();
-      else {
-        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-        show(slideIndex);
-      }
-      autoplay = setInterval(next, 4500);
-    });
-  });
-})();
+if (slides.length > 0) showSlides();
