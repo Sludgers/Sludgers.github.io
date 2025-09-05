@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sludgers — Mission</title>
   <meta name="description" content="Sludgers mission — goals and long-term vision." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect rx='18' width='100' height='100' fill='%23A6E3A1'/%3E%3Cpath d='M50 25c8 8 14 18 12 30-3 17-20 12-24 2-3-7 4-18 12-20 6-2 7-12 0-12z' fill='%230b7b0b'/%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -14,24 +15,26 @@
   <nav class="nav" role="navigation" aria-label="Main">
     <div class="nav-inner container">
       <a class="brand" href="index.html">Sludgers</a>
-      <button id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+      <button id="nav-toggle" class="hamburger-btn" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
         <span class="hamburger"></span>
       </button>
       <div id="nav-menu" class="nav-menu" hidden>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="mission.html">Mission</a>
+        <a href="mission.html" class="active">Mission</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
       </div>
       <div class="nav-actions">
-        <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">Dark</button>
+        <button class="toggle-btn" id="darkModeBtn" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
       </div>
     </div>
   </nav>
 
   <main id="content">
-    <section class="hero" style="min-height:48vh; margin:20px;">
+    <section class="hero small-hero">
       <div class="hero-inner reveal">
         <h1>Mission</h1>
         <p class="lead">I aim to scale small practical wins into larger environmental impact.</p>
@@ -40,20 +43,20 @@
 
     <section class="section reveal">
       <div class="container">
-        <h2>What Drives Me</h2>
-        <p><!-- placeholder -->I focus on projects that are measurable, reproducible, and accessible to communities worldwide.</p>
-        <ul>
-          <li>Promote sustainable practices in daily life.</li>
-          <li>Innovate easy-to-adopt green technologies.</li>
-          <li>Educate and empower local communities.</li>
+        <h3>What Drives Me</h3>
+        <p>I focus on projects that are measurable, reproducible, and accessible to communities worldwide.</p>
+        <ul class="nice-list">
+          <li>🌱 Promote sustainable practices in daily life.</li>
+          <li>⚡ Innovate easy-to-adopt green technologies.</li>
+          <li>🌍 Educate and empower local communities.</li>
         </ul>
       </div>
     </section>
 
     <section class="section section-alt reveal">
       <div class="container">
-        <h2>Future Goals</h2>
-        <p><!-- placeholder -->I plan to grow pilot projects into replicable toolkits and open-source resources.</p>
+        <h3>Future Goals</h3>
+        <p>I plan to grow pilot projects into replicable toolkits and open-source resources so others can adapt them locally.</p>
       </div>
     </section>
 
