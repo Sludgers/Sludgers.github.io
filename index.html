@@ -4,23 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sludgers — Making the world greener</title>
-  <meta name="description" content="Sludgers — building greener solutions and community projects to make the world more sustainable." />
-  <meta name="author" content="Sludgers" />
+  <meta name="description" content="Sludgers — I build green solutions and community projects to make the world more sustainable." />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Sludgers — Making the world greener" />
-  <meta property="og:description" content="Sludgers — building greener solutions and community projects to make the world more sustainable." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Sludgers" />
-  <meta property="og:url" content="https://<your-username>.github.io/sludgers/" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Sludgers" />
-  <meta name="twitter:description" content="Sludgers — building greener solutions and community projects." />
-
-  <!-- Favicon (svg data URI) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect rx='18' width='100' height='100' fill='%23A6E3A1'/%3E%3Cpath d='M50 25c8 8 14 18 12 30-3 17-20 12-24 2-3-7 4-18 12-20 6-2 7-12 0-12z' fill='%230b7b0b'/%3E%3C/svg%3E">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
@@ -33,12 +21,12 @@
     <div class="nav-inner container">
       <a class="brand" href="index.html" aria-label="Sludgers home">Sludgers</a>
 
-      <button id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+      <button id="nav-toggle" class="hamburger-btn" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
         <span class="hamburger"></span>
       </button>
 
       <div id="nav-menu" class="nav-menu" hidden>
-        <a href="index.html">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
         <a href="mission.html">Mission</a>
         <a href="projects.html">Projects</a>
@@ -46,7 +34,9 @@
       </div>
 
       <div class="nav-actions">
-        <button id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">Dark</button>
+        <button class="toggle-btn" id="darkModeBtn" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
       </div>
     </div>
   </nav>
@@ -62,15 +52,15 @@
           <a class="btn ghost" href="about.html">About</a>
         </div>
       </div>
-      <a class="scroll-down" href="#about-snippet" aria-label="Scroll to about">↓</a>
+      <a class="scroll-down" href="#about" aria-label="Scroll to about">↓</a>
     </header>
 
     <!-- About snippet -->
-    <section id="about-snippet" class="section reveal">
+    <section id="about" class="section reveal">
       <div class="container">
         <h2>About Sludgers</h2>
-        <p>I am building <strong>Sludgers</strong> to make our planet greener through technology and practical projects.</p>
-        <a class="btn" href="about.html">Read more</a>
+        <p>I founded <strong>Sludgers</strong> with a simple mission: to create innovative, eco-friendly solutions that help make our planet greener. I believe technology can solve some of the biggest environmental challenges we face today.</p>
+        <a class="btn" href="about.html">Learn more</a>
       </div>
     </section>
 
@@ -78,7 +68,7 @@
     <section class="section section-alt reveal">
       <div class="container">
         <h2>Mission</h2>
-        <p>I aim to promote sustainable everyday practices and scalable green technologies.</p>
+        <p>I aim to leverage modern technology and community action to create a cleaner, greener future—focusing on practical wins that scale.</p>
         <a class="btn" href="mission.html">See mission</a>
       </div>
     </section>
@@ -87,7 +77,7 @@
     <section class="section reveal">
       <div class="container">
         <h2>Projects</h2>
-        <p><!-- placeholder -->Featured projects and community work go here.</p>
+        <p>I’m working on sustainability projects around renewable energy, smarter waste systems, and community-driven action.</p>
         <a class="btn" href="projects.html">Explore projects</a>
       </div>
     </section>
